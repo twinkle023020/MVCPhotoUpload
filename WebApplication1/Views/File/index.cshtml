@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>index</h2>
+
+
+
+<div ng-app="app">
+    <div ng-controller="GreetingController">
+        {{4+4}}
+        <i class="pic-fa fa fa-camera hidden-xs hidden-xm" ng-click="browseAvaterImage()">yrtyryr</i>
+        <img class="" ng-src="{{AvatarUrl}}" alt="{{FirstName}}" width="100">
+        <input id="fileUploadAvaterImage" type="file" style="display: none" />
+
+
+        <div class="modal fade" id="mdAvaterImage">
+            <div class="modal-dialog  modal-sm custom-pupup">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Upload Profile Picture</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="divAvaterImageLoader">
+                            loading..
+                        </div>
+                        <div id="dvAvaterErrorMessage" style="display: none;"></div>
+
+                        <div id="divAvaterImage">
+                            <img src="" id="imgAvaterImage" />
+                            <input type="hidden" id="AX" value="" />
+                            <input type="hidden" id="AY" value="" />
+                            <input type="hidden" id="AW" value="" />
+                            <input type="hidden" id="AH" value="" />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn-custom black" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn-custom green" id="btnUpdateAvaterImage" data-ng-click="UpdateAvaterImage(this)">Crop and save</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+
+
+
+    var AvaterimageMaxW = 180;
+    var AvaterimageMinW = 120;
+    var AvaterimageMaxH = 180;
+    var AvaterimageMinH = 120;
+
+
+
+</script>
