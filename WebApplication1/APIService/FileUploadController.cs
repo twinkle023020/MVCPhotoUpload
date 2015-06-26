@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
+using WebApplication1.Helper;
 
 namespace WebApplication1.APIService
 {
@@ -23,7 +24,7 @@ namespace WebApplication1.APIService
                 {
                     // Get the uploaded image from the Files collection
                     var httpPostedFile = HttpContext.Current.Request.Files["UploadedImage"];
-
+                    output = FileOperation.BrowseFile(httpPostedFile, "Avater");
 
                 }
                 return output;

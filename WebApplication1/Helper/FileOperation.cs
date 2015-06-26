@@ -9,10 +9,10 @@ using System.Web;
 namespace WebApplication1.Helper
 {
     public static class FileOperation
-    {
+    {  
         public static string BrowseFile(HttpPostedFile httpPostedFile, string ImageType)
         {
-          
+          GetDiskPathForUploadedImages=@"D:\MyPracProjects\WorkingWithFile\WebApplication1\WebApplication1\Upload\";
             string hdfAvatarUrl = "";
             
                
@@ -35,13 +35,13 @@ namespace WebApplication1.Helper
                     string destinationPath = GetDiskPathForUploadedImages + hdfAvatarUrl;    
                     httpPostedFile.SaveAs(destinationPath);       
 
-                    if (CheckFileSize(ImageType, destinationPath)==false)
-                    {
+                    //if (CheckFileSize(ImageType, destinationPath)==false)
+                    //{
                        
-                        string error = "#E#Maximum Image size with in " +  AvaterimageMaxW.ToString() + "x" +  AvaterimageMaxH.ToString() + " and minimum image size " + AvaterimageMinW.ToString() + "x" + AvaterimageMinH.ToString();
-                         File.Delete(destinationPath);
-                        return error;
-                    }
+                    //    string error = "#E#Maximum Image size with in " +  AvaterimageMaxW.ToString() + "x" +  AvaterimageMaxH.ToString() + " and minimum image size " + AvaterimageMinW.ToString() + "x" + AvaterimageMinH.ToString();
+                    //     File.Delete(destinationPath);
+                    //    return error;
+                    //}
                 }
 
                 return GetDiskPathForUploadedImages + hdfAvatarUrl;
