@@ -159,10 +159,10 @@ namespace WebApplication1.Helper
                 }
                 string  cropFileName = "";
 
-               string randomString = RandomGenerator.GetRandomAlphaNumericStringOfParticularLength(SiteUtility.GetRandomStringLength());
+                string randomString = Guid.NewGuid().ToString();
                string fileExtension = aa.FullName.Split('.')[aa.FullName.Split('.').Length-1];
                  cropFileName = "temp/" + randomString + "." + fileExtension;
-                string cropFilePath = SiteUtility.GetDiskPathForUploadedImages() + cropFileName;
+                string cropFilePath = GetDiskPathForUploadedImages + cropFileName;
                
                 bitMap.Save(cropFilePath);
                 imageCroppedPath = cropFileName;
