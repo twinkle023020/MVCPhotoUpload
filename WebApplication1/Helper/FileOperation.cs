@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Web;
+using System.Configuration;
 
 namespace WebApplication1.Helper
 {
@@ -12,7 +13,9 @@ namespace WebApplication1.Helper
     {  
         public static string BrowseFile(HttpPostedFile httpPostedFile, string ImageType)
         {
-          GetDiskPathForUploadedImages=@"D:\MyPracProjects\WorkingWithFile\WebApplication1\WebApplication1\Upload\";
+            GetDiskPathForUploadedImages = ConfigurationManager.AppSettings["UploadFilePath"].ToString();
+            GetUploadFileURL = ConfigurationManager.AppSettings["UploadFileURL"].ToString();
+            
             string hdfAvatarUrl = "";
             
                
@@ -34,7 +37,7 @@ namespace WebApplication1.Helper
                     hdfAvatarUrl = "temp/" + randomString + "." + fileExtension;
                     string destinationPath = GetDiskPathForUploadedImages + hdfAvatarUrl;    
                     httpPostedFile.SaveAs(destinationPath);       
-
+                    
                     //if (CheckFileSize(ImageType, destinationPath)==false)
                     //{
                        
@@ -44,15 +47,15 @@ namespace WebApplication1.Helper
                     //}
                 }
 
-                return GetDiskPathForUploadedImages + hdfAvatarUrl;
+                return GetUploadFileURL + hdfAvatarUrl;
         
         }
         private static int AvaterimageMinH { get; set; }
         private static int AvaterimageMinW { get; set; }
         private static int AvaterimageMaxW { get; set; }
         private static int AvaterimageMaxH { get; set; }
-        private static string GetDiskPathForUploadedImages { get; set; }
-
+        private static string GetDiskPathForUploadedImages { get; set  ; }
+        private static string GetUploadFileURL { get; set; }
         public static bool IsImage(HttpPostedFile postedFile)
         {
             try

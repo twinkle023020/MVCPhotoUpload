@@ -25,7 +25,8 @@ namespace WebApplication1.APIService
                     // Get the uploaded image from the Files collection
                     var httpPostedFile = HttpContext.Current.Request.Files["UploadedImage"];
                     output = FileOperation.BrowseFile(httpPostedFile, "Avater");
-
+                     
+                     
                 }
                 return output;
             }
